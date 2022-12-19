@@ -13,9 +13,14 @@ namespace ConsoleApp1
             Block b1 = new Block("100", null);
             Block b2 = new Block("200", b1.ID);
 
+            Chain c1 = new Chain();
+            c1.AddBlock(b1);
+            c1.AddBlock(b2);
 
-            Console.WriteLine(b1);
-            Console.WriteLine(b2);
+            foreach(Block b in c1.BlockChain)
+            {
+                Console.WriteLine(b);
+            }
             Console.ReadLine();
         }
     }

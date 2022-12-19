@@ -43,7 +43,7 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return ID + "\n" + "Prethodni: " + Prethodni + "\n";
+            return "ID: " + ID + "\n" + "Prethodni: " + Prethodni + "\n";
         }
     }
 }
