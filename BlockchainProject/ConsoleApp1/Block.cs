@@ -10,6 +10,7 @@ namespace ConsoleApp1
     public class Block
     {
         private string id;
+        private string hashID;
         private string prethodni;
 
 
@@ -17,6 +18,7 @@ namespace ConsoleApp1
         {
             id = String.Empty;
             prethodni = String.Empty;
+            hashID = String.Empty;
         }
         public Block(string id, string prethodni)
         {
@@ -25,16 +27,21 @@ namespace ConsoleApp1
             byte[] hash = hashstring.ComputeHash(bytes);
             foreach(byte b in hash)
             {
-                ID += String.Format("{0:x2}", b);
+                hashID += String.Format("{0:x2}", b);
             }
             Prethodni = prethodni;
+            ID = id;
         }
         public string ID
         {
             get { return id; }
             set { id = value;  }
         }
-
+        public string HASHID
+        {
+            get { return hashID; }
+            set { hashID = value; } 
+        }
         public string Prethodni
         {
             get { return prethodni;  }
