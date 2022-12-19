@@ -12,12 +12,16 @@ namespace ConsoleApp1
         private List<Block> blockchain;
 
 
-        Chain()
+        public Chain()
         {
             blockchain = new List<Block>();
 
         }
 
+        public List<Block> BlockChain
+        {
+            get { return blockchain;  }
+        }
         public void AddBlock(Block b)
         {
             blockchain.Add(b);
