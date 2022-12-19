@@ -21,6 +21,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine(b);
             }
+            Console.WriteLine("Cao brate!");
             Console.ReadLine();
         }
     }
