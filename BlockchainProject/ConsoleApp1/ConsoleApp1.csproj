@@ -58,6 +58,7 @@
     <Compile Include="Block.cs" />
     <Compile Include="BlockTest.cs" />
     <Compile Include="Chain.cs" />
+    <Compile Include="ChainTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI.cs" />
   </ItemGroup>
