@@ -8,10 +8,11 @@ namespace ConsoleApp1
 {
     public class UI
     {
+
         static void Main (string[] args)
         {
-            Block b1 = new Block("100", null);
-            Block b2 = new Block("200", b1.ID);
+            Block b1 = new Block("100");
+            Block b2 = new Block("200");
 
             Chain c1 = new Chain();
             c1.AddBlock(b1);
@@ -21,8 +22,11 @@ namespace ConsoleApp1
             {
                 Console.WriteLine(b);
             }
-            Console.WriteLine("Cao brate!");
-            Console.WriteLine("desi bre legendo!");
+
+            Miner m = new Miner();
+            Miner m1 = new Miner();
+            int a = m.Mine(b1);
+            Console.WriteLine(m1.Validate(b1, a));
             Console.ReadLine();
         }
     }

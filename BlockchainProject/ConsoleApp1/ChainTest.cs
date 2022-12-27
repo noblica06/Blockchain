@@ -20,25 +20,25 @@ namespace ConsoleApp1
         }
 
         [Test]
-        [TestCase("100", "asd")]
+        [TestCase("100")]
         
-        public void ProveraDodavanja(string id, string prethodni)
+        public void ProveraDodavanja(string id)
         {
-            Block b = new Block(id, prethodni);
+            Block b = new Block(id);
             Chain c = new Chain();
 
             c.AddBlock(b);
 
             Assert.AreEqual(c.BlockChain[0].ID, id);
-            Assert.AreEqual(c.BlockChain[0].Prethodni, prethodni);
+           
         }
 
         [Test]
-        [TestCase("100", "asd")]
+        [TestCase("100")]
 
-        public void ProveraBrisanja(string id, string prethodni)
+        public void ProveraBrisanja(string id)
         {
-            Block b = new Block(id, prethodni);
+            Block b = new Block(id);
             Chain c = new Chain();
 
             c.AddBlock(b);

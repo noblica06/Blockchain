@@ -12,6 +12,8 @@ namespace ConsoleApp1
         private string id;
         private string hashID;
         private string prethodni;
+        private int num;
+        public string data { get; set; }
 
 
         public Block()
@@ -19,8 +21,10 @@ namespace ConsoleApp1
             id = String.Empty;
             prethodni = String.Empty;
             hashID = String.Empty;
+            data = String.Empty;
+
         }
-        public Block(string id, string prethodni)
+        public Block(string id)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(id);
             SHA256Managed hashstring = new SHA256Managed();
@@ -29,8 +33,9 @@ namespace ConsoleApp1
             {
                 hashID += String.Format("{0:x2}", b);
             }
-            Prethodni = prethodni;
             ID = id;
+            prethodni = String.Empty;
+            data = String.Empty;
         }
         public string ID
         {
@@ -51,6 +56,22 @@ namespace ConsoleApp1
         public override string ToString()
         {
             return "ID: " + ID + "\n" + "Prethodni: " + Prethodni + "\n";
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 696969;
+            hashCode = hashCode * -232323 + ID.GetHashCode();
+            hashCode = hashCode * -232323 + HASHID.GetHashCode();
+            hashCode = hashCode * -232323 + Prethodni.GetHashCode();
+            hashCode = hashCode * -232323 + Number.GetHashCode();
+            hashCode = hashCode * -232323 + data.GetHashCode();
+            return hashCode;
+        }
+        public int Number
+        {
+            get { return num; }
+            set { num = value; }
         }
     }
 }
