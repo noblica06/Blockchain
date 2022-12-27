@@ -11,24 +11,24 @@ namespace ConsoleApp1
     internal class BlockTest
     {
         [Test]
-        [TestCase("100", "a")]
-        public void DobriParamteri(string id, string prethodni)
+        [TestCase("100")]
+        public void DobriParamteri(string id)
         {
-            Block b = new Block(id, prethodni);
+            Block b = new Block(id);
             Assert.AreEqual(b.ID, id);
-            Assert.AreEqual(b.Prethodni, prethodni);
+           
 
         }
 
         [Test]
-        [TestCase(null, "1000")]
-        public void TestPada(string id, string prethodni)
+        [TestCase(null)]
+        public void TestPada(string id)
         {
 
             Assert.Throws<ArgumentNullException>(
                 () =>
                 {
-                    Block b = new Block(id, prethodni);
+                    Block b = new Block(id);
                 });
         }
     }
