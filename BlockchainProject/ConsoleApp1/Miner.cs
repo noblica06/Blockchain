@@ -8,8 +8,18 @@ namespace ConsoleApp1
 {
     public class Miner
     {
-        public Chain blockchain { get; set; }
-        
+        public string ID { get; set; }
+        public double BTCbalance { get; set; }
+        public Miner()
+        {
+            ID = string.Empty;
+            BTCbalance = 0;
+        }
+        public Miner(string id, double btc)
+        {
+            ID = id;
+            BTCbalance = btc;
+        }
         public int Mine(Block b)
         {
             int x = 1;
@@ -37,6 +47,7 @@ namespace ConsoleApp1
         public bool Validate(Block b, int res)
         {
             int test = this.Mine(b);
+            
             return res == test;
         }
     }

@@ -31,5 +31,13 @@ namespace ConsoleApp1
                     Block b = new Block(id);
                 });
         }
+
+        [Test]
+        [TestCase("0")]
+        public void TestGranicni(string id)
+        {
+            Block b = new Block(id);
+            Assert.AreEqual(b.ID, id);
+        }
     }
 }
