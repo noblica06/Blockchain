@@ -10,43 +10,46 @@ namespace ConsoleApp1
     public class Block
     {
         private string id;
-        private string hashID;
         private string prethodni;
         private int num;
+        public int valid { get; set; }
         public string data { get; set; }
+        public string idm { get; set; }
 
+        public Block(string id, string prethodni, int num, string data, int valid, string idm)
+        {
+            this.ID = id;
+            this.num = num;
+            this.data = data;
+         
+            Prethodni = prethodni;
+            
+            this.valid = valid;
+            this.idm = idm;
+        }
 
         public Block()
         {
-            id = String.Empty;
+            id = "0";
             prethodni = String.Empty;
-            hashID = String.Empty;
+            
             data = String.Empty;
 
         }
         public Block(string id)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(id);
-            SHA256Managed hashstring = new SHA256Managed();
-            byte[] hash = hashstring.ComputeHash(bytes);
-            foreach(byte b in hash)
-            {
-                hashID += String.Format("{0:x2}", b);
-            }
+  
             ID = id;
             prethodni = String.Empty;
             data = String.Empty;
         }
+        
         public string ID
         {
             get { return id; }
             set { id = value;  }
         }
-        public string HASHID
-        {
-            get { return hashID; }
-            set { hashID = value; } 
-        }
+
         public string Prethodni
         {
             get { return prethodni;  }
@@ -55,14 +58,14 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return "ID: " + ID + "\n" + "Prethodni: " + Prethodni + "\n";
+            return "ID: " + ID + "\n" + "Prethodni: " + Prethodni + data  + "\n";
         }
 
         public override int GetHashCode()
         {
-            var hashCode = 696969;
+            var hashCode = 54321;
             hashCode = hashCode * -232323 + ID.GetHashCode();
-            hashCode = hashCode * -232323 + HASHID.GetHashCode();
+            hashCode = hashCode * -232323 + data.GetHashCode();
             hashCode = hashCode * -232323 + Prethodni.GetHashCode();
             hashCode = hashCode * -232323 + Number.GetHashCode();
             hashCode = hashCode * -232323 + data.GetHashCode();
