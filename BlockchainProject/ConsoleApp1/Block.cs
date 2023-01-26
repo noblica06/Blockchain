@@ -21,7 +21,7 @@ namespace ConsoleApp1
             this.ID = id;
             this.num = num;
             this.data = data;
-         
+         //jajajajaja
             Prethodni = prethodni;
             
             this.valid = valid;
